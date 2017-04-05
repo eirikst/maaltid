@@ -1,0 +1,56 @@
+.general-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.general-div {
+  margin-bottom: 20px;
+}
+
+.general {
+  margin-bottom: 10px;
+}
+
+.product-table-element {
+    background-color: red;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table-image {
+  width: auto;
+  height: 60%;
+}
+
+.table-listbox {
+  width: 50px;
+}
+
+.search-image {
+  width: 4%;
+  height: 4%;
+}
+
+.fix-to-top {
+  position: fixed;
+  top: 0;
+}
+
+.sticky-header {
+  width: 200px;
+  margin-top: 75px;
+}
+
+body {
+    padding-top: 65px;
+}
+
+.peanut-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.remove-allergen-image {
+  width: 2%;
+  height: 2%;
+}

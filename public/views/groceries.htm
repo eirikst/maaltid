@@ -1,0 +1,128 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+
+
+    <title>Produkter og matvarer</title>
+  </head>
+  <body>
+
+    <div ng-controller="groceryCtrl">
+      <div class="container">
+        <div class="alert alert-danger sticky-header fix-to-top" role="alert" ng-show="showError">
+          {{errorMsg}}
+        </div>
+        <div class="alert alert-success sticky-header fix-to-top" role="alert" ng-show="showSuccess">
+          {{successMsg}}
+        </div>
+
+        <h3 class="general-header">
+            Registrer produkter og matvarer
+        </h3>
+
+
+        <!-- produktregistrering -->
+
+        <div class="panel-group">
+          <div class="panel panel-default">
+            <div class="panel-heading" ng-init="showPanel2=false" ng-click="showPanel2=!showPanel2">
+              <h4 class="panel-title">
+                <a role="button">
+                  Registrer produkt
+                </a>
+              </h4>
+            </div>
+            <div class="panel-collapse collapse in">
+              <div class="panel-body"  ng-show="showPanel2">
+                <form ng-submit="registerProduct()" class="general-div">
+                    <input class="general" type="text" ng-model="product.name" placeholder="Produkt"/>
+                    <div class="general-div" ng-show="!(product.groceries.length != 0)">
+                      <i>Ingen matvarer lagt til</i>
+                    </div>
+                    <div class="general-div">
+                      <div ng-repeat="grocery in product.groceries">
+                        {{grocery.name}} <img src="res/icons/ic_clear_black_24dp_2x.png" ng-click="removeGrocery(grocery)" class="remove-allergen-image"/>
+                      </div>
+                    </div>
+                    <input class="general" type="submit" value="Registrer"/>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <br>
+
+          <!-- matvareregistrering -->
+          <div class="panel-group">
+            <div class="panel panel-default">
+              <div class="panel-heading" ng-init="showPanel1=false" ng-click="showPanel1=!showPanel1">
+                <h4 class="panel-title">
+                  <a role="button">
+                    Registrer matvare
+                  </a>
+                </h4>
+              </div>
+              <div class="panel-collapse collapse in">
+                <div class="panel-body"  ng-show="showPanel1">
+                  <form ng-submit="register()" class="general-div">
+                      <input class="general" type="text" ng-model="grocery.name" placeholder="Matvare"/><br>
+                      <div class="general-div" ng-show="!(grocery.allergens.length != 0)">
+                        <i>Ingen allergener lagt til</i>
+                      </div>
+                      <div class="general-div">
+                        <div ng-repeat="allergen in grocery.allergens">
+                          {{allergen}} <img src="res/icons/ic_clear_black_24dp_2x.png" ng-click="removeAllergen(allergen)" class="remove-allergen-image"/>
+                        </div>
+                      </div>
+                      <select class="general-div" ng-model="tempAllergen">
+                        <option value="Melk" selected>Melk</option>
+                        <option value="Gluten">Gluten</option>
+                        <option value="Hvete">Hvete</option>
+                        <option value="Soya">Soya</option>
+                        <option value="Nøtter">Nøtter</option>
+                        <option value="Selleri">Selleri</option>
+                      </select>
+                      <input type="button" value="Legg til" ng-click="addAllergen()"/>
+                      <br>
+                      <input class="general" type="submit" value="Registrer"/>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+
+        <br>
+        <!-- search groceries -->
+        <input type="text" class="general" placeholder="Søk"
+        ng-init="grocerySearchString=''" ng-model="grocerySearchString">
+
+          <!--liste over produkter som er lagt til-->
+          <div class="general-div">
+            <h5>Tilgjengelige matvarer:</h5>
+
+            <table class="table">
+              <tbody>
+                <tr data-ng-repeat="grocery in groceries|textIncludesFilter:grocerySearchString|orderBy:'name'">
+                  <td>
+                    {{grocery.name}}
+                  </td>
+                  <td>
+                    <allergen-images/>
+                  </td>
+                  <td>
+                      <img src="res/icons/ic_add_black_24dp_2x.png" ng-click="addGrocery(grocery)" class="table-image"/>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+  </body>
+  </html>

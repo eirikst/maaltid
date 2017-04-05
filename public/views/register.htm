@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Mat</title>
+</head>
+<body>
+
+  <div ng-controller="regCtrl">
+
+    <!--registrer måltid-->
+    <div class="container">
+      <div class="alert alert-danger sticky-header fix-to-top" role="alert" ng-show="showError">
+        {{errorMsg}}
+      </div>
+
+
+      <h3 class="general-header">
+          Registrer måltid
+      </h3>
+
+      <div class="general-div">
+        <div class="general-div">
+          <input type="date" ng-model="meal.time"/>
+        </div>
+
+        <!--liste over produkter som er lagt til-->
+        <div class="general-div">
+          <h5>Produkter lagt til:</h5>
+
+          <table class="table">
+            <tbody>
+              <tr data-ng-repeat="productUnit in meal.productUnits">
+                <td>
+                  {{ productUnit.product.name}}
+                </td>
+                <td>
+                  {{ productUnit.product.printableGroceries()}}
+                </td>
+                <td>
+                  {{productUnit.quantity}}
+                </td>
+                <td>
+                  {{productUnit.unit}}
+                </td>
+                <td>
+                    <img src="res/icons/ic_clear_black_24dp_2x.png" ng-click="remove(productUnit.product)" class="table-image"/>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <input type="button" value="Registrer" ng-click="register()"/>
+      </div>
+
+
+        <!--søkbar liste over produkter-->
+
+        <h5>Legg til produkter:</h5>
+
+        <input type="text" class="general" placeholder="Søk" ng-init="productSearchString=''" ng-model="productSearchString">
+        <!--&nbsp<img src="res/icons/ic_backspace_black_24dp_2x.png" ng-click="productSearchString=''" class="search-image">-->
+
+        <table class="table">
+          <tbody>
+            <tr data-ng-repeat="product in products|textIncludesFilter:productSearchString">
+              <td>
+                <span>{{product.name}}</span>
+              </td>
+              <td>
+                <span>{{product.printableGroceries()}}</span>
+              </td>
+              <td>
+                <input type="number" pattern="\d*" ng-model="product.quantity" class="table-listbox"/>
+              </td>
+
+              <td>
+                <select ng-model="product.unit">
+                  <option value="stk" selected>stk</option>
+                  <option value="skv">skv</option>
+                  <option value="kg">kg</option>
+                  <option value="hg">hg</option>
+                  <option value="g">g</option>
+                  <option value="mg">mg</option>
+                  <option value="l">l</option>
+                  <option value="dl">dl</option>
+                  <option value="ml">ml</option>
+                </select>
+              </td>
+              <td>
+                  <img src="res/icons/ic_add_black_24dp_2x.png" ng-click="add(product)" class="table-image"/>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+
+    </div>
+  </div>
+
+
+</body>
+</html>
