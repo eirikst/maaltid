@@ -32,6 +32,11 @@ public abstract class AbstractHibernateDao<T extends Serializable> implements IO
     }
 
     @Override
+    public final List<T> findAll(String username) {
+        return getCurrentSession().createQuery("from " + clazz.getName() + " where username = '" + username + "'").list();
+    }
+
+    @Override
     public final void create(final T entity) {
         Preconditions.checkNotNull(entity);
         // getCurrentSession().persist(entity);

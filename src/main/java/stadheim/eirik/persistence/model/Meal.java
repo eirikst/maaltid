@@ -21,6 +21,8 @@ public class Meal implements Serializable {
     @Column(name = "time")
     private Date time;
 
+    private String username;
+
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "meal", cascade = {CascadeType.ALL})
     private Set<MealProduct> mealProducts = new HashSet<>();
 
@@ -39,6 +41,14 @@ public class Meal implements Serializable {
 
     public void setTime(Date time) {
         this.time = time;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public Set<MealProduct> getMealProducts() {

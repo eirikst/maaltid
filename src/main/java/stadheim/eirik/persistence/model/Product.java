@@ -20,6 +20,8 @@ public class Product implements Serializable {
     @Column(name = "name", unique = true)
     private String name;
 
+    private String username;
+
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "products")
     private Set<Grocery> groceries = new HashSet<Grocery>();
 
@@ -41,6 +43,14 @@ public class Product implements Serializable {
 
     public void setName(final String name) {
         this.name = name;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public Set<Grocery> getGroceries() {

@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import stadheim.eirik.api.dto.ProductDto;
+import stadheim.eirik.beans.BeanConfig;
 import stadheim.eirik.persistence.model.Product;
 import stadheim.eirik.persistence.service.IProductService;
 
@@ -22,6 +23,9 @@ public class ProductController {
     @Autowired
     private IProductService productService;
 
+    @Autowired
+    private BeanConfig.User sessionUser;
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Product> findProduct(@PathVariable(value = "id") long id) {
 
@@ -32,15 +36,24 @@ public class ProductController {
 
     @RequestMapping(method = RequestMethod.POST)
     public HttpStatus createProduct(@RequestBody ProductDto product) {
-        productService.create(product.toModel());
+        if(!sessionUser.checkAuth()) {
+            return HttpStatus.UNAUTHORIZED;
+        }
+
+        Product productModel = product.toModel();
+        productModel.setUsername(sessionUser.getUsername());
+        productService.create(productModel);
 
         return HttpStatus.CREATED;
     }
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<Set<ProductDto>> findAllProducts() {
+        if(!sessionUser.checkAuth()) {
+            return new ResponseEntity(null, HttpStatus.UNAUTHORIZED);
+        }
 
-        List<Product> products = productService.findAll();
+        List<Product> products = productService.findAll((sessionUser.getUsername()));
         Set<ProductDto> productDtos = new HashSet<>();
 
         for(Product product: products) {

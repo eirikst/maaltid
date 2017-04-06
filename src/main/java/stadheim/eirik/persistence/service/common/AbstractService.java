@@ -20,6 +20,11 @@ public abstract class AbstractService<T extends Serializable> implements IOperat
     }
 
     @Override
+    public List<T> findAll(String username) {
+        return getDao().findAll(username);
+    }
+
+    @Override
     public void create(final T entity) {
         getDao().create(entity);
     }

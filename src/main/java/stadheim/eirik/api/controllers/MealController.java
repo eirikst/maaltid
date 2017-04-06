@@ -6,6 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import stadheim.eirik.api.dto.MealDto;
 import stadheim.eirik.api.dto.ProductDto;
+import stadheim.eirik.beans.BeanConfig;
+import stadheim.eirik.persistence.model.Grocery;
 import stadheim.eirik.persistence.model.Meal;
 import stadheim.eirik.persistence.model.Product;
 import stadheim.eirik.persistence.service.IMealService;
@@ -21,6 +23,9 @@ public class MealController {
     @Autowired
     private IMealService mealService;
 
+    @Autowired
+    private BeanConfig.User sessionUser;
+
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Meal> findProduct(@PathVariable(value = "id") long id) {
@@ -32,7 +37,13 @@ public class MealController {
 
     @RequestMapping(method = RequestMethod.POST)
     public HttpStatus createMeal(@RequestBody MealDto meal) {
-        mealService.create(meal.toModel());
+        if(!sessionUser.checkAuth()) {
+            return HttpStatus.UNAUTHORIZED;
+        }
+
+        Meal mealModel = meal.toModel();
+        mealModel.setUsername(sessionUser.getUsername());
+        mealService.create(mealModel);
 
         return HttpStatus.CREATED;
     }

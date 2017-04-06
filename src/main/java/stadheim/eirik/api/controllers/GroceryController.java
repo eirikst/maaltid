@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import stadheim.eirik.api.dto.GroceryDto;
 import stadheim.eirik.api.dto.ProductDto;
+import stadheim.eirik.beans.BeanConfig;
 import stadheim.eirik.persistence.model.Grocery;
 import stadheim.eirik.persistence.model.Product;
 import stadheim.eirik.persistence.service.IGroceryService;
@@ -24,6 +25,9 @@ public class GroceryController {
     @Autowired
     private IGroceryService groceryService;
 
+    @Autowired
+    private BeanConfig.User sessionUser;
+
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Grocery> findGrocery(@PathVariable(value = "id") long id) {
@@ -35,15 +39,24 @@ public class GroceryController {
 
     @RequestMapping(method = RequestMethod.POST)
     public HttpStatus createGrocery(@RequestBody GroceryDto grocery) {
-        groceryService.create(grocery.toModel());
+        if(!sessionUser.checkAuth()) {
+            return HttpStatus.UNAUTHORIZED;
+        }
+
+        Grocery groceryModel = grocery.toModel();
+        groceryModel.setUsername(sessionUser.getUsername());
+        groceryService.create(groceryModel);
 
         return HttpStatus.CREATED;
     }
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<Set<ProductDto>> findAllGroceries() {
+        if(!sessionUser.checkAuth()) {
+            return new ResponseEntity(null, HttpStatus.UNAUTHORIZED);
+        }
 
-        List<Grocery> groceries = groceryService.findAll();
+        List<Grocery> groceries = groceryService.findAll(sessionUser.getUsername());
         Set<GroceryDto> groceryDtos = new HashSet<>();
 
         for(Grocery grocery: groceries) {

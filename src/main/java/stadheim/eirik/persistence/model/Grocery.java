@@ -20,6 +20,8 @@ public class Grocery implements Serializable {
     @Column(name = "name", unique = true)
     private String name;
 
+    private String username;
+
     @ManyToMany(fetch = FetchType.LAZY)
     private Set<Product> products = new HashSet<Product>(0);
 
@@ -41,6 +43,14 @@ public class Grocery implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public Set<Product> getProducts() {
