@@ -2,37 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a7315aa-6041-4bea-9f03-6968805bcb04" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/stadheim/eirik/api/controllers/GroceryController.class" afterPath="$PROJECT_DIR$/target/classes/stadheim/eirik/api/controllers/GroceryController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/stadheim/eirik/api/controllers/MealController.class" afterPath="$PROJECT_DIR$/target/classes/stadheim/eirik/api/controllers/MealController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/stadheim/eirik/api/controllers/ProductController.class" afterPath="$PROJECT_DIR$/target/classes/stadheim/eirik/api/controllers/ProductController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/stadheim/eirik/api/controllers/UserController.class" afterPath="$PROJECT_DIR$/target/classes/stadheim/eirik/api/controllers/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/stadheim/eirik/beans/BeanConfig.class" afterPath="$PROJECT_DIR$/target/classes/stadheim/eirik/beans/BeanConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/stadheim/eirik/persistence/PersistenceConfig.class" afterPath="$PROJECT_DIR$/target/classes/stadheim/eirik/persistence/PersistenceConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/stadheim/eirik/persistence/dao/common/AbstractHibernateDao.class" afterPath="$PROJECT_DIR$/target/classes/stadheim/eirik/persistence/dao/common/AbstractHibernateDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/stadheim/eirik/persistence/dao/common/IOperations.class" afterPath="$PROJECT_DIR$/target/classes/stadheim/eirik/persistence/dao/common/IOperations.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/stadheim/eirik/persistence/model/Grocery.class" afterPath="$PROJECT_DIR$/target/classes/stadheim/eirik/persistence/model/Grocery.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/stadheim/eirik/persistence/model/Meal.class" afterPath="$PROJECT_DIR$/target/classes/stadheim/eirik/persistence/model/Meal.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/stadheim/eirik/persistence/model/Product.class" afterPath="$PROJECT_DIR$/target/classes/stadheim/eirik/persistence/model/Product.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/stadheim/eirik/persistence/service/common/AbstractService.class" afterPath="$PROJECT_DIR$/target/classes/stadheim/eirik/persistence/service/common/AbstractService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/meal.js" afterPath="$PROJECT_DIR$/public/js/meal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/groceries.htm" afterPath="$PROJECT_DIR$/public/views/groceries.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/stadheim/eirik/Application.java" afterPath="$PROJECT_DIR$/src/main/java/stadheim/eirik/Application.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/stadheim/eirik/api/controllers/GroceryController.java" afterPath="$PROJECT_DIR$/src/main/java/stadheim/eirik/api/controllers/GroceryController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/stadheim/eirik/api/controllers/MealController.java" afterPath="$PROJECT_DIR$/src/main/java/stadheim/eirik/api/controllers/MealController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/stadheim/eirik/api/controllers/ProductController.java" afterPath="$PROJECT_DIR$/src/main/java/stadheim/eirik/api/controllers/ProductController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/stadheim/eirik/api/controllers/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/stadheim/eirik/api/controllers/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/stadheim/eirik/beans/BeanConfig.java" afterPath="$PROJECT_DIR$/src/main/java/stadheim/eirik/beans/BeanConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/stadheim/eirik/persistence/PersistenceConfig.java" afterPath="$PROJECT_DIR$/src/main/java/stadheim/eirik/persistence/PersistenceConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/stadheim/eirik/persistence/dao/common/AbstractHibernateDao.java" afterPath="$PROJECT_DIR$/src/main/java/stadheim/eirik/persistence/dao/common/AbstractHibernateDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/stadheim/eirik/persistence/dao/common/IOperations.java" afterPath="$PROJECT_DIR$/src/main/java/stadheim/eirik/persistence/dao/common/IOperations.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/stadheim/eirik/persistence/model/Grocery.java" afterPath="$PROJECT_DIR$/src/main/java/stadheim/eirik/persistence/model/Grocery.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/stadheim/eirik/persistence/model/Meal.java" afterPath="$PROJECT_DIR$/src/main/java/stadheim/eirik/persistence/model/Meal.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/stadheim/eirik/persistence/model/Product.java" afterPath="$PROJECT_DIR$/src/main/java/stadheim/eirik/persistence/model/Product.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/stadheim/eirik/persistence/service/common/AbstractService.java" afterPath="$PROJECT_DIR$/src/main/java/stadheim/eirik/persistence/service/common/AbstractService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/persistence-postgres.properties" afterPath="$PROJECT_DIR$/src/main/resources/persistence-postgres.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/persistence-postgres.properties" afterPath="$PROJECT_DIR$/target/classes/persistence-postgres.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -49,8 +19,8 @@
       <file leaf-file-name="persistence-postgres.properties" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/persistence-postgres.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="2" lean-forward="false" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+            <state relative-caret-position="255">
+              <caret line="17" column="29" lean-forward="false" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -1174,8 +1144,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/persistence-postgres.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="2" lean-forward="false" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+        <state relative-caret-position="255">
+          <caret line="17" column="29" lean-forward="false" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
           <folding />
         </state>
       </provider>
